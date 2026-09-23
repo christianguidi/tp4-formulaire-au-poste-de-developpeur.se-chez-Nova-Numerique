@@ -15,13 +15,15 @@
     </header>
 
     <main>
-        <form action="/recu.html" method="GET">
+        <form action="/recu.html" method="get">
 
             <!--L'OFFRE-->
 
             <fieldset>
                 <legend>L'offre</legend>
-                <input type="text" name="intitule_offre" value="Développeur.se web junior" readonly />
+                <label for="intitule_offre">Intitulé de l'offre</label>
+                <input type="text" name="intitule_offre" id="intitule_offre" value="Développeur.se web junior"
+                    readonly />
                 <input type="hidden" name="reference_offre" value="NOVA-DEV-2026-014" />
             </fieldset>
 
@@ -29,6 +31,7 @@
 
             <fieldset>
                 <legend>IDENTITÉ</legend>
+
                 <fieldset>
                     <legend>Civilités</legend>
                     <input type="radio" id="civ_mme" name="civilite" value="Madame" required />
@@ -36,31 +39,34 @@
                     <input type="radio" id="civ_m" name="civilite" value="Monsieur" />
                     <label for="civ_m">Monsieur</label>
                 </fieldset>
+
                 <label for="nom">Nom de famille</label>
                 <input type="text" name="nom" id="nom" minlength="2" required />
                 <label for="prenom">Prénom(s)</label>
                 <input type="text" name="prenom" id="prenom" required />
                 <label for="date_naissance">Date de naissance</label>
                 <input type="date" name="date_naissance" id="date_naissance" max="2008-09-23" required />
+
                 <label for="nationalite">Nationalité</label>
                 <select name="nationalite" id="nationalite">
                     <option>Sélectionnez votre pays</option>
-                    <option value="Béninois">Bénin</option>
-                    <option value="Togolais">Togo</option>
-                    <option value="Ivorien">Côte d'Ivoire</option>
-                    <option value="Camérounais">Caméroun</option>
-                    <option value="Français">France</option>
-                    <option value="Haitien.ne">Haiti</option>
+                    <option value="beninois">Bénin</option>
+                    <option value="togolais">Togo</option>
+                    <option value="iorien">Côte d'Ivoire</option>
+                    <option value="camerounais">Caméroun</option>
+                    <option value="francais">France</option>
+                    <option value="haitien.ne">Haiti</option>
                 </select>
+
                 <label for="photo">Photo d'identité</label>
-                <input type="file" name="photo" id="photo"
-                    accept="image/png, image/jpg, image/jpeg, image/gif, image/webp, image/bmp, image/tiff, image/avif, image/heic, image/heif, image/raw" />
+                <input type="file" name="photo" id="photo" accept="image/*" />
             </fieldset>
 
             <!--COORDONNÉES-->
 
             <fieldset>
                 <legend>COORDONNÉES</legend>
+
                 <label for="email">Adresse e-mail</label>
                 <input type="email" name="email" id="email" required />
                 <label for="telephone">Téléphone</label>
@@ -69,14 +75,17 @@
                 <label for="adresse">Adresse postale ou quartier</label>
                 <input type="text" name="adresse" id="adresse" />
                 <label for="ville">Ville</label>
-                <input type="text" name="ville" list="ville" placeholder="Saississez votre ville" required />
-                <datalist id="ville">
+                <input type="text" name="ville" id="ville" list="liste_ville" placeholder="Saississez votre ville"
+                    required />
+                <datalist id="liste_ville">
                     <option value="Cotonou">
                     <option value="Abomey-Calavi">
                     <option value="Porto-Novo">
                 </datalist>
+
                 <label for="linkedin">Profil LinkedIn</label>
                 <input type="url" name="linkedin" id="linkedin" />
+
                 <label for="portfolio">Site ou portfolio</label>
                 <input type="url" name="portfolio" id="portfolio" />
             </fieldset>
@@ -196,9 +205,10 @@
                 <label for="consentement">Consentement à la conservation des données</label>
                 <input type="checkbox" name="alerte_emploi" name="alerte_emploi" id="alerte_emploi" />
                 <label for="alerte_emploi">Recevoir les prochaines offres</label>
-
-                <button>Soumettre</button>
             </fieldset>
+
+            <button type="submit">Soumettre</button>
+            <button type="reset">Réinitialisation</button>
         </form>
     </main>
 </body>
