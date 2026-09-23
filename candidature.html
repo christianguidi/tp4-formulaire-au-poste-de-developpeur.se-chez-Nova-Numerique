@@ -40,16 +40,17 @@
                     <label for="civ_m">Monsieur</label>
                 </fieldset>
 
-                <label for="nom">Nom de famille</label>
-                <input type="text" name="nom" id="nom" minlength="2" required />
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom" minlength="2" autocomplete="family-name" required />
                 <label for="prenom">Prénom(s)</label>
-                <input type="text" name="prenom" id="prenom" required />
+                <input type="text" name="prenom" id="prenom" autocomplete="given-name" required />
                 <label for="date_naissance">Date de naissance</label>
-                <input type="date" name="date_naissance" id="date_naissance" max="2008-09-23" required />
+                <input type="date" id="date_naissance" name="date_naissance" max="2008-09-23" autocomplete="bday-day"
+                    required />
 
                 <label for="nationalite">Nationalité</label>
                 <select name="nationalite" id="nationalite">
-                    <option>Sélectionnez votre pays</option>
+                    <option value="">- Choisissez -</option>
                     <option value="beninois">Bénin</option>
                     <option value="togolais">Togo</option>
                     <option value="iorien">Côte d'Ivoire</option>
@@ -70,13 +71,12 @@
                 <label for="email">Adresse e-mail</label>
                 <input type="email" name="email" id="email" required />
                 <label for="telephone">Téléphone</label>
-                <input type="tel" name="telephone" id="telephone" placeholder="+229 01 97 00 00 00"
-                    pattern="0[1-9](?: [0-9]{2}){4}" required />
+                <input type="tel" name="telephone" id="telephone" pattern="0[1-9](?: [0-9]{2}){4}" required />
                 <label for="adresse">Adresse postale ou quartier</label>
                 <input type="text" name="adresse" id="adresse" />
                 <label for="ville">Ville</label>
-                <input type="text" name="ville" id="ville" list="liste_ville" placeholder="Saississez votre ville"
-                    required />
+                <input type="text" name="ville" id="ville" list="liste_ville">
+                required />
                 <datalist id="liste_ville">
                     <option value="Cotonou">
                     <option value="Abomey-Calavi">
@@ -110,6 +110,7 @@
                         <option>Trésorier</option>
                     </optgroup>
                 </select>
+
                 <fieldset>
                     <legend>Type de contrat</legend>
                     <input type="radio" name="contrat" id="cdi" required />
@@ -121,10 +122,12 @@
                     <input type="radio" name="contrat" id="freelance" required />
                     <label for="freelance">Freelance</label>
                 </fieldset>
+
                 <label for="date_disponibilite">Date de disponibilité</label>
                 <input type="date" name="date_disponibilite" id="date_disponibilite" min="2026-09-23" required />
                 <label for="pretention">Prétention salariale en F CFA</label>
-                <input type="number" name="pretention" id="pretention" min="100000" step="50000" />
+                <input type="number" name="pretention" id="pretention" min="65000" step="5000" />
+
                 <fieldset>
                     <legend>Mobilité géographique</legend>
                     <input type="checkbox" name="mobilite" id="mobilte_locale" />
@@ -190,7 +193,7 @@
 
             <fieldset>
                 <legend>ESPACE CANDIDAT ET CONSENTEMENT</legend>
-                <label for="mot_de_passe">Mot de passe de l'espace candidat</label>
+                <label for="mot_de_passe">Mot de passe</label>
                 <input type="password" name="mot_de_passe" id="mot_de_passe"
                     pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}" required />
                 <label for="source">Comment avez-vous connu cette offre ?</label>
@@ -202,13 +205,13 @@
                     <option value="autres">Autres</option>
                 </select>
                 <input type="checkbox" name="consentement" id="consentement" required />
-                <label for="consentement">Consentement à la conservation des données</label>
-                <input type="checkbox" name="alerte_emploi" name="alerte_emploi" id="alerte_emploi" />
+                <label for="consentement">Je suis d'accord sur la conservation de mes données pour étude</label>
+                <input type="checkbox" name="alerte_emploi" id="alerte_emploi" />
                 <label for="alerte_emploi">Recevoir les prochaines offres</label>
             </fieldset>
 
-            <button type="submit">Soumettre</button>
-            <button type="reset">Réinitialisation</button>
+            <button type="submit">Envoyer ma candidature</button>
+            <button type="reset">Tout effacer</button>
         </form>
     </main>
 </body>
