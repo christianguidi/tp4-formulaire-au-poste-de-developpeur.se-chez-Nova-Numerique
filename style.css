@@ -1,0 +1,579 @@
+/* =============================================================
+   TP n°4 — Feuille de style FOURNIE — Candidature Nova Numérique
+   -------------------------------------------------------------
+   Ne la modifiez pas. Elle sera remplacée par la copie du
+   formateur lors de la correction.
+
+   Ce fichier fait deux choses :
+     1. il met en forme votre formulaire ;
+     2. il VÉRIFIE votre formulaire contre le cahier des charges.
+
+   Deux bandeaux, en haut et en bas du formulaire, vous disent
+   où vous en êtes. Tout champ entouré d'un pointillé rouge
+   contient une erreur de structure.
+
+   Aucune classe, aucun script : uniquement des sélecteurs qui
+   lisent vos balises et vos attributs. Si le vérificateur se
+   trompe sur votre code, c'est que votre code ne dit pas ce
+   que vous croyez qu'il dit.
+
+   Navigateur récent requis : Chrome, Edge, Firefox ou Safari
+   mis à jour.
+   ============================================================= */
+
+
+/* ---------- Page ---------- */
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Montserrat", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #14213D;
+  background: #F5F6F9;
+  margin: 0;
+  padding: 32px 18px 80px;
+}
+
+body > header,
+main,
+body > footer {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 { font-size: 1.7rem; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 .4rem; }
+h1 + p { color: #6B7A93; margin: 0 0 1.8rem; }
+
+
+/* ---------- Formulaire ---------- */
+
+form {
+  background: #FFFFFF;
+  border: 1px solid #C9D2E0;
+  border-top: 4px solid #AF4524;
+  padding: 1.6rem 1.6rem 1.8rem;
+}
+
+fieldset {
+  border: 1px solid #C9D2E0;
+  padding: 1.1rem 1.3rem 1.3rem;
+  margin: 0 0 1.4rem;
+}
+
+legend {
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #AF4524;
+  padding: 0 .5rem;
+}
+
+/* Groupes imbriqués : boutons radio et cases à cocher */
+fieldset fieldset {
+  border: 0;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+fieldset fieldset legend {
+  font-size: .9rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #14213D;
+  padding: 0;
+  margin-bottom: .3rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: .88rem;
+  margin: 1rem 0 .3rem;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 15px;
+  color: #14213D;
+  width: 100%;
+  padding: .5rem .6rem;
+  border: 1px solid #C9D2E0;
+  border-radius: 3px;
+  background: #FFFFFF;
+}
+
+textarea { min-height: 130px; resize: vertical; }
+select[multiple] { min-height: 110px; }
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #AF4524;
+  outline-offset: 1px;
+}
+
+/* Champs obligatoires : liseré à gauche */
+input:required,
+select:required,
+textarea:required {
+  border-left: 3px solid #AF4524;
+}
+
+/* Champs en lecture seule */
+input[readonly] {
+  background: #F5F6F9;
+  color: #6B7A93;
+}
+
+/* Boutons radio et cases à cocher, suivis de leur label */
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin: 0 .45rem 0 0;
+  vertical-align: middle;
+}
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  display: inline;
+  font-weight: 400;
+  font-size: .95rem;
+  margin: 0;
+}
+input[type="radio"] + label::after,
+input[type="checkbox"] + label::after {
+  content: "\A";
+  white-space: pre;
+}
+
+input[type="color"] { width: 72px; height: 42px; padding: 2px; }
+input[type="range"] { padding: 0; border: 0; }
+input[type="file"] { background: #F5F6F9; padding: .45rem; }
+
+/* Boutons */
+button,
+input[type="submit"],
+input[type="reset"] {
+  width: auto;
+  font-family: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+  padding: .7rem 1.3rem;
+  margin: .4rem .6rem 0 0;
+  border-radius: 3px;
+  border: 1px solid #14213D;
+  background: #FFFFFF;
+  color: #14213D;
+  cursor: pointer;
+}
+button[type="submit"],
+input[type="submit"] {
+  background: #AF4524;
+  border-color: #AF4524;
+  color: #FFFFFF;
+}
+
+
+/* =============================================================
+   LE VÉRIFICATEUR
+   ============================================================= */
+
+/* ---------- Bandeau du haut : erreurs de structure ---------- */
+
+form::before {
+  display: block;
+  content: "\2713  Aucune erreur de structure détectée.";
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .75rem 1rem;
+  margin: 0 0 1.4rem;
+  border-left: 4px solid #2E7D4F;
+  background: #EAF5EE;
+  color: #1F5C39;
+}
+
+form:has(
+  input:not([name]):not([type="submit"]):not([type="reset"]):not([type="button"]),
+  select:not([name]),
+  textarea:not([name]),
+  label:not([for]),
+  div,
+  table,
+  > fieldset > input[type="radio"],
+  > fieldset > input[name="mobilite"],
+  input[name="intitule_offre"]:not([type="text"]),
+  select[name="intitule_offre"],
+  textarea[name="intitule_offre"],
+  [name="intitule_offre"]:not([readonly]),
+  input[name="reference_offre"]:not([type="hidden"]),
+  select[name="reference_offre"],
+  textarea[name="reference_offre"],
+  input[name="civilite"]:not([type="radio"]),
+  select[name="civilite"],
+  textarea[name="civilite"],
+  input[name="nom"]:not([type="text"]),
+  select[name="nom"],
+  textarea[name="nom"],
+  [name="nom"]:not([required]),
+  [name="nom"]:not([minlength]),
+  input[name="prenom"]:not([type="text"]),
+  select[name="prenom"],
+  textarea[name="prenom"],
+  [name="prenom"]:not([required]),
+  input[name="date_naissance"]:not([type="date"]),
+  select[name="date_naissance"],
+  textarea[name="date_naissance"],
+  [name="date_naissance"]:not([required]),
+  [name="date_naissance"]:not([max]),
+  input[name="nationalite"],
+  textarea[name="nationalite"],
+  input[name="photo"]:not([type="file"]),
+  select[name="photo"],
+  textarea[name="photo"],
+  [name="photo"]:not([accept]),
+  input[name="email"]:not([type="email"]),
+  select[name="email"],
+  textarea[name="email"],
+  [name="email"]:not([required]),
+  input[name="telephone"]:not([type="tel"]),
+  select[name="telephone"],
+  textarea[name="telephone"],
+  [name="telephone"]:not([required]),
+  [name="telephone"]:not([pattern]),
+  input[name="adresse"]:not([type="text"]),
+  select[name="adresse"],
+  textarea[name="adresse"],
+  input[name="ville"]:not([type="text"]),
+  select[name="ville"],
+  textarea[name="ville"],
+  [name="ville"]:not([required]),
+  [name="ville"]:not([list]),
+  input[name="linkedin"]:not([type="url"]),
+  select[name="linkedin"],
+  textarea[name="linkedin"],
+  input[name="portfolio"]:not([type="url"]),
+  select[name="portfolio"],
+  textarea[name="portfolio"],
+  input[name="poste"],
+  textarea[name="poste"],
+  [name="poste"]:not([required]),
+  input[name="contrat"]:not([type="radio"]),
+  select[name="contrat"],
+  textarea[name="contrat"],
+  input[name="date_disponibilite"]:not([type="date"]),
+  select[name="date_disponibilite"],
+  textarea[name="date_disponibilite"],
+  [name="date_disponibilite"]:not([required]),
+  [name="date_disponibilite"]:not([min]),
+  input[name="pretention"]:not([type="number"]),
+  select[name="pretention"],
+  textarea[name="pretention"],
+  [name="pretention"]:not([min]),
+  [name="pretention"]:not([step]),
+  input[name="mobilite"]:not([type="checkbox"]),
+  select[name="mobilite"],
+  textarea[name="mobilite"],
+  input[name="fin_etudes"]:not([type="month"]),
+  select[name="fin_etudes"],
+  textarea[name="fin_etudes"],
+  input[name="semaine_entretien"]:not([type="week"]),
+  select[name="semaine_entretien"],
+  textarea[name="semaine_entretien"],
+  input[name="creneau_entretien"]:not([type="time"]),
+  select[name="creneau_entretien"],
+  textarea[name="creneau_entretien"],
+  [name="creneau_entretien"]:not([min]),
+  [name="creneau_entretien"]:not([max]),
+  [name="creneau_entretien"]:not([step]),
+  input[name="test_technique"]:not([type="datetime-local"]),
+  select[name="test_technique"],
+  textarea[name="test_technique"],
+  input[name="niveau_symfony"]:not([type="range"]),
+  select[name="niveau_symfony"],
+  textarea[name="niveau_symfony"],
+  [name="niveau_symfony"]:not([required]),
+  [name="niveau_symfony"]:not([min]),
+  [name="niveau_symfony"]:not([max]),
+  input[name="langages"],
+  textarea[name="langages"],
+  [name="langages"]:not([multiple]),
+  input[name="annees_experience"]:not([type="number"]),
+  select[name="annees_experience"],
+  textarea[name="annees_experience"],
+  [name="annees_experience"]:not([required]),
+  [name="annees_experience"]:not([min]),
+  [name="annees_experience"]:not([max]),
+  input[name="couleur_proposee"]:not([type="color"]),
+  select[name="couleur_proposee"],
+  textarea[name="couleur_proposee"],
+  input[name="cv"]:not([type="file"]),
+  select[name="cv"],
+  textarea[name="cv"],
+  [name="cv"]:not([required]),
+  [name="cv"]:not([accept]),
+  input[name="lettre"]:not([type="file"]),
+  select[name="lettre"],
+  textarea[name="lettre"],
+  [name="lettre"]:not([accept]),
+  input[name="autres_documents"]:not([type="file"]),
+  select[name="autres_documents"],
+  textarea[name="autres_documents"],
+  [name="autres_documents"]:not([multiple]),
+  input[name="motivation"],
+  select[name="motivation"],
+  [name="motivation"]:not([required]),
+  [name="motivation"]:not([maxlength]),
+  input[name="mot_de_passe"]:not([type="password"]),
+  select[name="mot_de_passe"],
+  textarea[name="mot_de_passe"],
+  [name="mot_de_passe"]:not([required]),
+  [name="mot_de_passe"]:not([pattern]),
+  input[name="source"],
+  textarea[name="source"],
+  input[name="consentement"]:not([type="checkbox"]),
+  select[name="consentement"],
+  textarea[name="consentement"],
+  [name="consentement"]:not([required]),
+  input[name="alerte_emploi"]:not([type="checkbox"]),
+  select[name="alerte_emploi"],
+  textarea[name="alerte_emploi"],
+  fieldset > :first-child:not(legend)
+)::before,
+form:not([action="recu.html"])::before,
+form:not([method="get" i])::before,
+form:has(select[name="poste"]):not(:has(select[name="poste"] optgroup))::before,
+form:has(select[name="poste"]):not(:has(select[name="poste"] > option[value=""]:first-child))::before,
+form:has([name="civilite"]):not(:has([name="civilite"][required]))::before,
+form:has([name="contrat"]):not(:has([name="contrat"][required]))::before {
+  content: "\2717  Erreur de structure. Repérez les champs entourés de rouge, ou relisez les attributs de la balise <form> et vos <fieldset>.";
+  border-left-color: #C0392B;
+  background: #FDECEA;
+  color: #8E2B20;
+}
+
+/* ---------- Bandeau du bas : complétude du cahier des charges ---------- */
+
+form::after {
+  display: block;
+  content: "\2713  Tous les champs du cahier des charges sont présents.";
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .75rem 1rem;
+  margin: 1.4rem 0 0;
+  border-left: 4px solid #2E7D4F;
+  background: #EAF5EE;
+  color: #1F5C39;
+}
+
+form:not(:has([name="intitule_offre"]))::after,
+form:not(:has([name="reference_offre"]))::after,
+form:not(:has([name="civilite"]))::after,
+form:not(:has([name="nom"]))::after,
+form:not(:has([name="prenom"]))::after,
+form:not(:has([name="date_naissance"]))::after,
+form:not(:has([name="nationalite"]))::after,
+form:not(:has([name="photo"]))::after,
+form:not(:has([name="email"]))::after,
+form:not(:has([name="telephone"]))::after,
+form:not(:has([name="adresse"]))::after,
+form:not(:has([name="ville"]))::after,
+form:not(:has([name="linkedin"]))::after,
+form:not(:has([name="portfolio"]))::after,
+form:not(:has([name="poste"]))::after,
+form:not(:has([name="contrat"]))::after,
+form:not(:has([name="date_disponibilite"]))::after,
+form:not(:has([name="pretention"]))::after,
+form:not(:has([name="mobilite"]))::after,
+form:not(:has([name="fin_etudes"]))::after,
+form:not(:has([name="semaine_entretien"]))::after,
+form:not(:has([name="creneau_entretien"]))::after,
+form:not(:has([name="test_technique"]))::after,
+form:not(:has([name="niveau_symfony"]))::after,
+form:not(:has([name="langages"]))::after,
+form:not(:has([name="annees_experience"]))::after,
+form:not(:has([name="couleur_proposee"]))::after,
+form:not(:has([name="cv"]))::after,
+form:not(:has([name="lettre"]))::after,
+form:not(:has([name="autres_documents"]))::after,
+form:not(:has([name="motivation"]))::after,
+form:not(:has([name="mot_de_passe"]))::after,
+form:not(:has([name="source"]))::after,
+form:not(:has([name="consentement"]))::after,
+form:not(:has([name="alerte_emploi"]))::after,
+form:not(:has(datalist))::after,
+form:not(:has([type="submit"]))::after {
+  content: "\2717  Formulaire incomplet : il manque encore des champs du cahier des charges, une liste de suggestions ou le bouton d'envoi.";
+  border-left-color: #C0392B;
+  background: #FDECEA;
+  color: #8E2B20;
+}
+
+/* ---------- Signalement individuel des champs fautifs ---------- */
+
+input:not([name]):not([type="submit"]):not([type="reset"]):not([type="button"]),
+  select:not([name]),
+  textarea:not([name]),
+  label:not([for]),
+  form div,
+  form table,
+  form > fieldset > input[type="radio"],
+  form > fieldset > input[name="mobilite"],
+  input[name="intitule_offre"]:not([type="text"]),
+  select[name="intitule_offre"],
+  textarea[name="intitule_offre"],
+  [name="intitule_offre"]:not([readonly]),
+  input[name="reference_offre"]:not([type="hidden"]),
+  select[name="reference_offre"],
+  textarea[name="reference_offre"],
+  input[name="civilite"]:not([type="radio"]),
+  select[name="civilite"],
+  textarea[name="civilite"],
+  input[name="nom"]:not([type="text"]),
+  select[name="nom"],
+  textarea[name="nom"],
+  [name="nom"]:not([required]),
+  [name="nom"]:not([minlength]),
+  input[name="prenom"]:not([type="text"]),
+  select[name="prenom"],
+  textarea[name="prenom"],
+  [name="prenom"]:not([required]),
+  input[name="date_naissance"]:not([type="date"]),
+  select[name="date_naissance"],
+  textarea[name="date_naissance"],
+  [name="date_naissance"]:not([required]),
+  [name="date_naissance"]:not([max]),
+  input[name="nationalite"],
+  textarea[name="nationalite"],
+  input[name="photo"]:not([type="file"]),
+  select[name="photo"],
+  textarea[name="photo"],
+  [name="photo"]:not([accept]),
+  input[name="email"]:not([type="email"]),
+  select[name="email"],
+  textarea[name="email"],
+  [name="email"]:not([required]),
+  input[name="telephone"]:not([type="tel"]),
+  select[name="telephone"],
+  textarea[name="telephone"],
+  [name="telephone"]:not([required]),
+  [name="telephone"]:not([pattern]),
+  input[name="adresse"]:not([type="text"]),
+  select[name="adresse"],
+  textarea[name="adresse"],
+  input[name="ville"]:not([type="text"]),
+  select[name="ville"],
+  textarea[name="ville"],
+  [name="ville"]:not([required]),
+  [name="ville"]:not([list]),
+  input[name="linkedin"]:not([type="url"]),
+  select[name="linkedin"],
+  textarea[name="linkedin"],
+  input[name="portfolio"]:not([type="url"]),
+  select[name="portfolio"],
+  textarea[name="portfolio"],
+  input[name="poste"],
+  textarea[name="poste"],
+  [name="poste"]:not([required]),
+  input[name="contrat"]:not([type="radio"]),
+  select[name="contrat"],
+  textarea[name="contrat"],
+  input[name="date_disponibilite"]:not([type="date"]),
+  select[name="date_disponibilite"],
+  textarea[name="date_disponibilite"],
+  [name="date_disponibilite"]:not([required]),
+  [name="date_disponibilite"]:not([min]),
+  input[name="pretention"]:not([type="number"]),
+  select[name="pretention"],
+  textarea[name="pretention"],
+  [name="pretention"]:not([min]),
+  [name="pretention"]:not([step]),
+  input[name="mobilite"]:not([type="checkbox"]),
+  select[name="mobilite"],
+  textarea[name="mobilite"],
+  input[name="fin_etudes"]:not([type="month"]),
+  select[name="fin_etudes"],
+  textarea[name="fin_etudes"],
+  input[name="semaine_entretien"]:not([type="week"]),
+  select[name="semaine_entretien"],
+  textarea[name="semaine_entretien"],
+  input[name="creneau_entretien"]:not([type="time"]),
+  select[name="creneau_entretien"],
+  textarea[name="creneau_entretien"],
+  [name="creneau_entretien"]:not([min]),
+  [name="creneau_entretien"]:not([max]),
+  [name="creneau_entretien"]:not([step]),
+  input[name="test_technique"]:not([type="datetime-local"]),
+  select[name="test_technique"],
+  textarea[name="test_technique"],
+  input[name="niveau_symfony"]:not([type="range"]),
+  select[name="niveau_symfony"],
+  textarea[name="niveau_symfony"],
+  [name="niveau_symfony"]:not([required]),
+  [name="niveau_symfony"]:not([min]),
+  [name="niveau_symfony"]:not([max]),
+  input[name="langages"],
+  textarea[name="langages"],
+  [name="langages"]:not([multiple]),
+  input[name="annees_experience"]:not([type="number"]),
+  select[name="annees_experience"],
+  textarea[name="annees_experience"],
+  [name="annees_experience"]:not([required]),
+  [name="annees_experience"]:not([min]),
+  [name="annees_experience"]:not([max]),
+  input[name="couleur_proposee"]:not([type="color"]),
+  select[name="couleur_proposee"],
+  textarea[name="couleur_proposee"],
+  input[name="cv"]:not([type="file"]),
+  select[name="cv"],
+  textarea[name="cv"],
+  [name="cv"]:not([required]),
+  [name="cv"]:not([accept]),
+  input[name="lettre"]:not([type="file"]),
+  select[name="lettre"],
+  textarea[name="lettre"],
+  [name="lettre"]:not([accept]),
+  input[name="autres_documents"]:not([type="file"]),
+  select[name="autres_documents"],
+  textarea[name="autres_documents"],
+  [name="autres_documents"]:not([multiple]),
+  input[name="motivation"],
+  select[name="motivation"],
+  [name="motivation"]:not([required]),
+  [name="motivation"]:not([maxlength]),
+  input[name="mot_de_passe"]:not([type="password"]),
+  select[name="mot_de_passe"],
+  textarea[name="mot_de_passe"],
+  [name="mot_de_passe"]:not([required]),
+  [name="mot_de_passe"]:not([pattern]),
+  input[name="source"],
+  textarea[name="source"],
+  input[name="consentement"]:not([type="checkbox"]),
+  select[name="consentement"],
+  textarea[name="consentement"],
+  [name="consentement"]:not([required]),
+  input[name="alerte_emploi"]:not([type="checkbox"]),
+  select[name="alerte_emploi"],
+  textarea[name="alerte_emploi"],
+  fieldset > :first-child:not(legend),
+  select[name="poste"]:not(:has(optgroup)),
+  select[name="poste"]:not(:has(> option[value=""]:first-child)) {
+  outline: 3px dashed #C0392B !important;
+  outline-offset: 3px;
+  background-color: #FDECEA !important;
+}
+
+/* Un champ caché mal typé devient visible pour être signalé */
+input[name="reference_offre"]:not([type="hidden"]) {
+  display: block !important;
+}
+
+/* Formulaire mal configuré : cadre complet */
+form:not([action="recu.html"]),
+form:not([method="get" i]) {
+  outline: 3px dashed #C0392B;
+  outline-offset: 4px;
+}

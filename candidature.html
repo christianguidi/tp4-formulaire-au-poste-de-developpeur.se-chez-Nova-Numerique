@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="device=width-device, initial-scale=1.0" />
+    <title>Formulaire de candidature au poste de Développeur.se web junior chez Nova Numérique</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Postuler chez Nova Numérique</h1>
+        <p>Offre d'emploi — Développeur·se web junior — Cotonou</p>
+    </header>
+
+    <main>
+        <form action="/recu.html" method="GET">
+
+            <!--L'OFFRE-->
+
+            <fieldset>
+                <legend>L'offre</legend>
+                <input type="text" name="intitule_offre" value="Développeur.se web junior" readonly />
+                <input type="hidden" name="reference_offre" value="NOVA-DEV-2026-014" />
+            </fieldset>
+
+            <!--IDENTITÉ-->
+
+            <fieldset>
+                <legend>IDENTITÉ</legend>
+                <fieldset>
+                    <legend>Civilités</legend>
+                    <input type="radio" id="civ_mme" name="civilite" value="Madame" required />
+                    <label for="civ_mme">Madame</label>
+                    <input type="radio" id="civ_m" name="civilite" value="Monsieur" />
+                    <label for="civ_m">Monsieur</label>
+                </fieldset>
+                <label for="nom">Nom de famille</label>
+                <input type="text" name="nom" id="nom" minlength="2" required />
+                <label for="prenom">Prénom(s)</label>
+                <input type="text" name="prenom" id="prenom" required />
+                <label for="date_naissance">Date de naissance</label>
+                <input type="date" name="date_naissance" id="date_naissance" max="2008-09-23" required />
+                <label for="nationalite">Nationalité</label>
+                <select name="nationalite" id="nationalite">
+                    <option>Sélectionnez votre pays</option>
+                    <option value="Béninois">Bénin</option>
+                    <option value="Togolais">Togo</option>
+                    <option value="Ivorien">Côte d'Ivoire</option>
+                    <option value="Camérounais">Caméroun</option>
+                    <option value="Français">France</option>
+                    <option value="Haitien.ne">Haiti</option>
+                </select>
+                <label for="photo">Photo d'identité</label>
+                <input type="file" name="photo" id="photo"
+                    accept="image/png, image/jpg, image/jpeg, image/gif, image/webp, image/bmp, image/tiff, image/avif, image/heic, image/heif, image/raw" />
+            </fieldset>
+
+            <!--COORDONNÉES-->
+
+            <fieldset>
+                <legend>COORDONNÉES</legend>
+                <label for="email">Adresse e-mail</label>
+                <input type="email" name="email" id="email" required />
+                <label for="telephone">Téléphone</label>
+                <input type="tel" name="telephone" id="telephone" placeholder="+229 01 97 00 00 00"
+                    pattern="0[1-9](?: [0-9]{2}){4}" required />
+                <label for="adresse">Adresse postale ou quartier</label>
+                <input type="text" name="adresse" id="adresse" />
+                <label for="ville">Ville</label>
+                <input type="text" name="ville" list="ville" placeholder="Saississez votre ville" required />
+                <datalist id="ville">
+                    <option value="Cotonou">
+                    <option value="Abomey-Calavi">
+                    <option value="Porto-Novo">
+                </datalist>
+                <label for="linkedin">Profil LinkedIn</label>
+                <input type="url" name="linkedin" id="linkedin" />
+                <label for="portfolio">Site ou portfolio</label>
+                <input type="url" name="portfolio" id="portfolio" />
+            </fieldset>
+
+            <!--LE POSTE VISÉ-->
+
+            <fieldset>
+                <legend>LE POSTE VISÉ</legend>
+                <label for="poste">Poste visé</label>
+                <select id="poste" name="poste" required>
+                    <option value=""></option>
+                    <optgroup label="Informatique">
+                        <option value="developpeur.se web">Développeur.se Web</option>
+                        <option value="administrateur systeme et reseau">Administrateur Système et Réseau</option>
+                        <option value="data analyst">Data Analyst</option>
+                        <option value="ingenieur devOps">Ingénieur DevOps</option>
+                    </optgroup>
+                    <optgroup label="Finance & Comptabilite">
+                        <option>Comptable général</option>
+                        <option>Auditeur financier</option>
+                        <option>Analyste financier</option>
+                        <option>Trésorier</option>
+                    </optgroup>
+                </select>
+                <fieldset>
+                    <legend>Type de contrat</legend>
+                    <input type="radio" name="contrat" id="cdi" required />
+                    <label for="cdi">CDI</label>
+                    <input type="radio" name="contrat" id="cdd" required />
+                    <label for="cdd">CDD</label>
+                    <input type="radio" name="contrat" id="stage" required />
+                    <label for="stage">Stage</label>
+                    <input type="radio" name="contrat" id="freelance" required />
+                    <label for="freelance">Freelance</label>
+                </fieldset>
+                <label for="date_disponibilite">Date de disponibilité</label>
+                <input type="date" name="date_disponibilite" id="date_disponibilite" min="2026-09-23" required />
+                <label for="pretention">Prétention salariale en F CFA</label>
+                <input type="number" name="pretention" id="pretention" min="100000" step="50000" />
+                <fieldset>
+                    <legend>Mobilité géographique</legend>
+                    <input type="checkbox" name="mobilite" id="mobilte_locale" />
+                    <label for="mobilite_locale">Mobilité locale</label>
+                    <input type="checkbox" name="mobilite" id="mobilite_regionale" />
+                    <label for="mobilite_regionale">Mobilité régionale</label>
+                    <input type="checkbox" name="mobilite" id="mobilite_nationale" />
+                    <label for="mobilite_nationale">Mobilité nationale</label>
+                    <input type="checkbox" name="mobilite" id="mobilite_internationale" />
+                    <label for="mobilite_internationale">Mobilité internationale</label>
+                </fieldset>
+                <label for="fin_etudes">Mois de fin d'études</label>
+                <input type="month" name="fin_etudes" id="fin_etudes" />
+            </fieldset>
+
+            <!--DISPONIBILITÉS POUR L'ENTRETIEN-->
+
+            <fieldset>
+                <legend>DISPONIBILITÉS POUR L'ENTRETIEN</legend>
+                <label for="semaine_entretien">Semaine préférée pour l'entretien</label>
+                <input type="week" name="semaine_entretien" id="semaine_entretien" />
+                <label for="creneau_entretien">Heure préférée</label>
+                <input type="time" name="creneau_entretien" id="creneau_entretien" min="08:00" max="17:00"
+                    step="1800" />
+                <label for="test_technique">Date et heure souhaitées pour le test technique en ligne</label>
+                <input type="datetime-local" name="test_technique" id="test_technique" />
+            </fieldset>
+
+            <!--COMPÉTENCES-->
+
+            <fieldset>
+                <legend>COMPÉTENCES</legend>
+                <label for="niveau_symfony">Niveau en Sympfony</label>
+                <input type="range" name="niveau_symfony" id="niveau_symfony" min="0" max="10" required />
+                <label for="langages">Langages maîtrisés</label>
+                <select name="langages" id="langages" multiple>
+                    <option value="HTML5 & CSS3">HTML5 & CSS3</option>
+                    <option value="PHP">PHP</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                </select>
+                <label for="annees_experience">Années d'expérience</label>
+                <input type="number" name="annees_experience" id="annees_experience" min="0" max="40" required />
+                <label for="couleur_proposee">Test design</label>
+                <input type="color" name="couleur_proposee" id="couleur_proposee" />
+            </fieldset>
+
+            <!--DOCUMENTS-->
+
+            <fieldset>
+                <legend>DOCUMENTS</legend>
+                <label for="cv">CV</label>
+                <input type="file" name="cv" id="cv" accept="application/pdf" required />
+                <label for="lettre">Lettre de motivation</label>
+                <input type="file" name="lettre" id="lettre" accept="application/pdf, application/docx" />
+                <label for="autres_documents">Diplômes et attestations</label>
+                <input type="file" name="autres_documents" id="autres_documents" multiple />
+                <label for="motivation">Pourquoi ce poste ?</label>
+                <textarea name="motivation" id="motivation" maxlength="1500" required></textarea>
+            </fieldset>
+
+            <!--ESPACE CANDIDAT ET CONSENTEMENT-->
+
+            <fieldset>
+                <legend>ESPACE CANDIDAT ET CONSENTEMENT</legend>
+                <label for="mot_de_passe">Mot de passe de l'espace candidat</label>
+                <input type="password" name="mot_de_passe" id="mot_de_passe"
+                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}" required />
+                <label for="source">Comment avez-vous connu cette offre ?</label>
+                <select name="source" id="source">
+                    <option value=""></option>
+                    <option value="site_web">Site web de l'entreprise</option>
+                    <option value="reseau">Réseau sociaux</option>
+                    <option value="candidature_spontannee">Candidature spontannée</option>
+                    <option value="autres">Autres</option>
+                </select>
+                <input type="checkbox" name="consentement" id="consentement" required />
+                <label for="consentement">Consentement à la conservation des données</label>
+                <input type="checkbox" name="alerte_emploi" name="alerte_emploi" id="alerte_emploi" />
+                <label for="alerte_emploi">Recevoir les prochaines offres</label>
+
+                <button>Soumettre</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+</html>
